@@ -4,5 +4,12 @@
   height: 100%;
   scroll-snap-align: start;
   background-color: white;
-  border: 5px solid red;
+  
+}
+
+.video_player {
+  object-fit: fill;
+  height: 100%;
+  width: 100%;
+  
 }
