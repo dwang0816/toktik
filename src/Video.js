@@ -29,10 +29,11 @@ function Video() {
         ref={videoRef}
       ></video>
       
-      <VideoSideBar/>
+      <VideoSideBar likes={5401} messages={230} shares={10}/>
     </div>
   )
 }
 
 export default Video
+
 
