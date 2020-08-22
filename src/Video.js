@@ -10,6 +10,7 @@ function Video({url}) {
   const videoRef = useRef(null)
   
   const onVideoPress = () => {
+    console.log(videoRef)
     if(playing){
       videoRef.current.pause()
       setPlay(false)
