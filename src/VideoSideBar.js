@@ -7,7 +7,7 @@ import ShareIcon from '@material-ui/icons/Share'
 import CommentList from './CommentList'
 
 
-function VideoSideBar({likes, messageCount, shares, onCommentPress}) {
+function VideoSideBar({likes, messageCount, shares, onCommentOpen}) {
 
   const [liked, setLiked] = useState(false)
 
@@ -32,7 +32,7 @@ function VideoSideBar({likes, messageCount, shares, onCommentPress}) {
       <div className="videoSideBar_button">
         <MessageIcon 
           fontSize="large"
-          onClick={() => onCommentPress()}
+          onClick={() => onCommentOpen()}
         />
         <p> {messageCount} </p>
       </div>

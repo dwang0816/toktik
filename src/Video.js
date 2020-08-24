@@ -19,7 +19,17 @@ export default class Video extends Component {
     showComments: false
   }
 
-
+  addComment = () => {
+    if(event.key === "Enter"){
+      const commentCollection = this.state.commentCollection
+      commentCollection.push(event.target.value)
+      this.setState({
+        commentCollection
+      })
+      event.target.value = ""
+    }
+  }
+  
   onVideoPress = () => {
     if(this.state.isPlaying){
       event.target.pause()
@@ -30,13 +40,12 @@ export default class Video extends Component {
     }
   }
 
-  onCommentPress = () => {
-    if(this.state.showComments){
-      this.setState({showComments: false })
-
-    } else {
-      this.setState({showComments: true })
-    }
+  onCommentOpen = () => {
+    this.setState({ showComments: true })
+  }
+  
+  onCommentClose = () => {
+    this.setState({ showComments: false })
   }
 
   render() {
@@ -54,8 +63,15 @@ export default class Video extends Component {
         onClick={this.onVideoPress}
       />
       
-      <VideoSideBar likes={5401} messageCount={230} shares={10} onCommentPress={this.onCommentPress}/>
-      {showComments ? <CommentList commentCollection={commentCollection} /> : null}
+      <VideoSideBar likes={5401} messageCount={230} shares={10} onCommentOpen={this.onCommentOpen}/>
+      {showComments ? 
+        <CommentList 
+          commentCollection={commentCollection} 
+          onCommentClose={this.onCommentClose} 
+          addComment={this.addComment}
+        /> 
+        : null
+      }
 
     </div>
     )
